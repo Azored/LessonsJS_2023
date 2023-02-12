@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../css/tasks.css">
+   <title>Задача 5</title>
+</head>
+
+<body>
+   <div class="task">
+      <h2 class="task__title">Задача 5</h2>
+      <p class="task__description">
+         Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин.
+      </p>
+      <script>
+         //Введення користувачем секунд
+         let secUser = parseInt(prompt('Введіть кількість секунд, що пройшла від початку доби:'))
+
+         //Константи
+         const SECOND_IN_HOUR = 3600
+         const SECOND_IN_MINUTE = 60
+
+         //Знаходимо необхідний результат
+         const HOURS_IN_SECOND = secUser / SECOND_IN_HOUR
+         const MINUTES_IN_SECOND = secUser / SECOND_IN_MINUTE
+
+         //Виведення результату
+         document.write(`<p>Конвертоване значення секунд задане користувачем:</p>
+         <p>В години: ${HOURS_IN_SECOND.toFixed(1)} год.</p>
+         <p>В хвилинах: ${MINUTES_IN_SECOND.toFixed(1)} хв.</p>`)
+      </script>
+   </div>
+</body>
+
+</html>

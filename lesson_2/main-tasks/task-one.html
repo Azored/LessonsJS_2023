@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../css/tasks.css">
+   <title>Задача 1</title>
+</head>
+
+<body>
+   <div class="task">
+      <h2 class="task__title">Задача 1</h2>
+      <p class="task__description">
+         Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці.
+      </p>
+      <script>
+         //Введення вхідних аргументів
+         let a = parseFloat(prompt('Введіть перше число:'))
+         let b = parseFloat(prompt('Введіть друге висло:'))
+         document.write(`Задані аргументи: a=${a}, b=${b}`)
+         //Знаходимо результат
+         const SUM = a + b
+         const PRODUCT = a * b
+         const QUOTIENT = a / b
+         //Виводимо результат
+         document.write(`
+         <table>
+            <tr>
+               <th>Операція</th>
+               <th>Результат</th>
+            </tr>
+            <tr>
+               <th>Додавання</th>
+               <th>${a} + ${b} = ${SUM}</th>
+            </tr>
+            <tr>
+               <th>Множення</th>
+               <th>${a} * ${b} = ${PRODUCT}</th>
+            </tr>
+            <tr>
+               <th>Ділення</th>
+               <th>${a} / ${b} = ${QUOTIENT}</th>
+            </tr>
+         </table>`)
+      </script>
+   </div>
+</body>
+
+</html>

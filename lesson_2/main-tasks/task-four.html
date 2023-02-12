@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../css/tasks.css">
+   <title>Задача 4</title>
+</head>
+
+<body>
+   <div class="task">
+      <h2 class="task__title">Задача 4</h2>
+      <p class="task__description">
+         Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.
+      </p>
+      <script>
+         //Введення користувачем довжини (в сантиметрах)
+         let lengthUser = parseInt(prompt('Введіть довжину в сантиметрах:'))
+
+         //Константи
+         const CENTIMETER_IN_KILOMETER = 100000
+         const CENTIMETER_IN_METER = 100
+
+         //Знаходимо необхідний результат
+         const KILOMETER_IN_CENTIMETER = lengthUser / CENTIMETER_IN_KILOMETER
+         const METER_IN_CENTIMETER = lengthUser / CENTIMETER_IN_METER
+
+         //Виводимо результат
+         document.write(`<p>Конвертована ваша довжина:</p>
+         <p>В метрах: ${METER_IN_CENTIMETER} м</p>
+         <p>В кілометрах: ${KILOMETER_IN_CENTIMETER} км</p>`)
+      </script>
+   </div>
+</body>
+
+</html>

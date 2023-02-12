@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../css/tasks.css">
+   <title>Задача 0</title>
+</head>
+
+<body>
+   <div class="task">
+      <h2 class="task__title">Задача 0</h2>
+      <p class="task__description">
+         Обчислити значення виразів.
+      </p>
+      <script>
+         //Введення вхідних аргументів
+         let a = parseFloat(prompt('Введіть перше число (a):'))
+         let b = parseFloat(prompt('Введіть друге число (b):'))
+         let c = parseFloat(prompt('Введіть третє число (c):'))
+         document.write(`Задані аргументи: a=${a}, b=${b}, c=${c}`)
+      </script>
+      <ol class="task__list">
+         <li>
+            <div class="task__image">
+               <img src="../img/01.jpg" alt="Exercise">
+            </div>
+            <script>
+               // Знаходимо результат першого прикладу
+               const S1 = a + 12 + b
+               document.write(`${a} + 12 + ${b} = ${S1}`)
+            </script>
+         </li>
+         <li>
+            <div class="task__image">
+               <img src="../img/02.jpg" alt="Exercise">
+            </div>
+            <script>
+               // Знаходимо результат другого прикладу
+               const S2 = Math.sqrt((a + b) / (2 * a))
+               document.write(`Корінь виразу: ${a} + ${b} / 2 * ${a} = ${S2}`)
+            </script>
+         </li>
+         <li>
+            <div class="task__image">
+               <img src="../img/03.jpg" alt="Exercise">
+            </div>
+            <script>
+               // Знаходимо результат третього прикладу
+               const S3 = Math.cbrt((a + b) * c)
+               document.write(`Кубічний корінь виразу: (${a} + ${b}) * ${c} = ${S3}`)
+            </script>
+         </li>
+         <li>
+            <div class="task__image">
+               <img src="../img/04.jpg" alt="Exercise">
+            </div>
+            <script>
+               // Знаходимо результат четвертого прикладу
+               const S4 = Math.sin(a / -b)
+               document.write(`Синус виразу: ${a} / ${b} = ${S4}`)
+            </script>
+         </li>
+      </ol>
+   </div>
+
+</body>
+
+</html>

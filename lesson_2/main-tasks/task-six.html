@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../css/tasks.css">
+   <title>Задача 6</title>
+</head>
+
+<body>
+   <div class="task">
+      <h2 class="task__title">Задача 6</h2>
+      <p class="task__description">
+         З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару окремо
+         та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.
+      </p>
+      <script>
+         //Введення вхідних аргументів
+         let FirstUnitCost = parseFloat(prompt('Введіть вартість одиниці першого товару (грн):'))
+         let FirstUnitsNumber = parseInt(prompt('Введіть кількість одиниць першого товару:'))
+         let SecondUnitCost = parseFloat(prompt('Введіть вартість одиниці другого товару (грн):'))
+         let SecondUnitsNumber = parseInt(prompt('Введіть кількість одиниць другого товару:'))
+         let ThirdUnitCost = parseFloat(prompt('Введіть вартість одиниці треьтого товару (грн):'))
+         let ThirdUnitsNumber = parseInt(prompt('Введіть кількість одиниць треьтого товару:'))
+
+         //Знаходимо необхідний результат
+         const TOTAL_FIRST_UNIT_COST = FirstUnitCost * FirstUnitsNumber
+         const TOTAL_SECOND_UNIT_COST = SecondUnitCost * SecondUnitsNumber
+         const TOTAL_THIRD_UNIT_COST = ThirdUnitCost * ThirdUnitsNumber
+         const TOTAL_COST = TOTAL_FIRST_UNIT_COST + TOTAL_SECOND_UNIT_COST + TOTAL_THIRD_UNIT_COST
+
+         //Виводимо результат
+         document.write(`<h3>ЧЕК</h3>
+         <ol>
+            <li>Товар №1 ${FirstUnitCost} грн. (${FirstUnitsNumber} шт.) - ${TOTAL_FIRST_UNIT_COST.toFixed(2)} грн.</li>
+            <li>Товар №2 ${SecondUnitCost} грн. (${SecondUnitsNumber} шт.) - ${TOTAL_SECOND_UNIT_COST.toFixed(2)} грн.</li>
+            <li>Товар №3 ${ThirdUnitCost} грн. (${ThirdUnitsNumber} шт.) - ${TOTAL_THIRD_UNIT_COST.toFixed(2)} грн.</li>
+         </ol>
+         <p>РАЗОМ ${TOTAL_COST.toFixed(2)} грн</p>`)
+      </script>
+   </div>
+</body>
+
+</html>
