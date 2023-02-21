@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 4</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 4</h2>
+         <p class="task__description">
+            З клавіатури вводиться вік людини. Вивести на екран ким він є
+            (дитиною у садочку, школярем, студентом, працівником, пенсіонером).
+         </p>
+         <script>
+            //Введення користувачем довжини (в сантиметрах)
+            let userAge = parseInt(prompt("Введіть вік людини"));
+
+            //Константи
+            const minSchoolChildYear = 6,
+               minStudentYear = 17,
+               minWorkerYear = 23,
+               minRetiredYear = 65;
+
+            //Знаходимо необхідний результат
+            switch (true) {
+               case userAge < minSchoolChildYear:
+                  //Виводимо результат
+                  document.write(`Людина являється дитиною`);
+                  break;
+               case userAge < minStudentYear:
+                  //Виводимо результат
+                  document.write(`Людина являється школярем`);
+                  break;
+               case userAge < minWorkerYear:
+                  //Виводимо результат
+                  document.write(`Людина являється студентом`);
+                  break;
+               case userAge < minRetiredYear:
+                  //Виводимо результат
+                  document.write(`Людина являється робітником`);
+                  break;
+               default:
+                  //Виводимо результат
+                  document.write(`Людина являється пенсіонером`);
+            }
+         </script>
+      </div>
+   </body>
+</html>

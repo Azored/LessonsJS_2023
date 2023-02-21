@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 2</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 2</h2>
+         <p class="task__description">
+            З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей
+            не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються
+            гроші, то пропонуємо купити лотерею за 4 грн.
+         </p>
+         <script>
+            //Введення вхідних аргументів
+            let productCost = parseFloat(prompt("Введіть ціну товару:")),
+               userMoneyAmount = parseFloat(
+                  prompt("Введіть суму грошей клієнта")
+               );
+            document.write(
+               `<p>Вхідні дані:</p><p>Ціна товару ${productCost} грн</p><p>Сума грошей у клієнта ${userMoneyAmount} грн</p>`
+            );
+
+            //Константи
+            const lotteryCost = 4;
+
+            //Знаходимо необхідний результат
+            if (userMoneyAmount >= productCost + lotteryCost)
+               //Виводимо результат
+               document.write(
+                  `У клієнта достатньо грошей для покупки товару, та достатньо решти грошей, щоб запропонувати зіграти в лотерею`
+               );
+            else if (userMoneyAmount >= productCost)
+               //Виводимо результат
+               document.write(`У клієнта достатньо грошей для покупки товару`);
+            //Виводимо результат
+            else
+               document.write(
+                  `У клієнта не достатньо коштів, у покупці відмовляємо`
+               );
+         </script>
+      </div>
+   </body>
+</html>

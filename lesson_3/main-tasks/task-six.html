@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 6</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 6</h2>
+         <p class="task__description">
+            З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.
+         </p>
+         <script>
+            //Введення вхідних аргументів
+            let userDayNumber = parseInt(prompt("Введіть номер дня тижня"));
+
+            //Знаходимо необхідний результат
+            switch (userDayNumber) {
+               case 1:
+                  //Виводимо результат
+                  document.write(`Ви вибрали день неділі - понеділок`);
+                  break;
+               case 2:
+                  //Виводимо результат
+                  document.write(`Ви вибрали день неділі - вівторок`);
+                  break;
+               case 3:
+                  //Виводимо результат
+                  document.write(`Ви вибрали день неділі - середа`);
+                  break;
+               case 4:
+                  //Виводимо результат
+                  document.write(`Ви вибрали день неділі - четвер`);
+                  break;
+               case 5:
+                  //Виводимо результат
+                  document.write(`Ви вибрали день неділі - п'ятниця`);
+                  break;
+               case 6:
+                  //Виводимо результат
+                  document.write(`Ви вибрали день неділі - субота`);
+                  break;
+               case 7:
+                  //Виводимо результат
+                  document.write(`Ви вибрали день неділі - неділя`);
+                  break;
+               default:
+                  //Виводимо результат
+                  document.write(`Ви ввели некоректні дані`);
+                  break;
+            }
+         </script>
+      </div>
+   </body>
+</html>

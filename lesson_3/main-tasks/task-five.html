@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 5</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 5</h2>
+         <p class="task__description">
+            З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий
+            автомобіль, С-вантажний автомобіль). Вивести на екран назву
+            транспортного засобу, яким він може керувати.
+         </p>
+         <script>
+            //Введення користувачем секунд
+            let userDriverCategory = prompt(
+               "Введіть назву категорії водія символом верхнього регістру англійского алфавіту (A, B, C):"
+            );
+
+            //Константи
+            const driverCategoryA = "A",
+               driverCategoryB = "B",
+               driverCategoryC = "C";
+
+            //Знаходимо необхідний результат
+            switch (true) {
+               case userDriverCategory === driverCategoryA:
+                  document.write(
+                     `Водій категорії "${userDriverCategory}" може керувати мотоциклом`
+                  );
+                  break;
+               case userDriverCategory === driverCategoryB:
+                  document.write(
+                     `Водій категорії "${userDriverCategory}" може керувати легковим автомобілем`
+                  );
+                  break;
+               case userDriverCategory === driverCategoryC:
+                  document.write(
+                     `Водій категорії "${userDriverCategory}" може керувати вантажним автомобілем`
+                  );
+                  break;
+               default:
+                  document.write(`Введено некоректні дані`);
+                  break;
+            }
+
+            //Виведення результату
+            document.write(`<p>Конвертоване значення секунд задане користувачем:</p>
+         <p>В години: ${HOURS_IN_SECOND.toFixed(1)} год.</p>
+         <p>В хвилинах: ${MINUTES_IN_SECOND.toFixed(1)} хв.</p>`);
+         </script>
+      </div>
+   </body>
+</html>

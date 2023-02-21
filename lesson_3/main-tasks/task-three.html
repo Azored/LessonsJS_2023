@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 3</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 3</h2>
+         <p class="task__description">
+            Випадковим чином генерується число від 1 до 5. Спробуйте вгадати
+            число за 2 спроби.
+         </p>
+         <script>
+            //Введення вхідних аргументів
+            let userNumber = parseInt(
+               prompt(
+                  "Спробуй вгадати число! У вас 2 спроби. Введіть своє число:"
+               )
+            );
+
+            //Константи
+            const minNumber = 1;
+            const maxNumber = 5;
+
+            //Робимо необхідні розрахунки
+            const randomNumber =
+               minNumber +
+               Math.floor(Math.random() * (maxNumber - minNumber + 1));
+
+            //Знаходимо необхідний результат
+            if (userNumber === randomNumber)
+               //Виводимо результат
+               document.write(`<h3>Вітаємо!!! Ви вгадали число</h3>`);
+            else {
+               userNumber = parseInt(
+                  prompt(
+                     "Не вгадали, залишилась остання спроба. Введіть своє нове число:"
+                  )
+               );
+               if (userNumber === randomNumber)
+                  //Виводимо результат
+                  document.write(
+                     `<h3>Вітаємо!!! Вам вдалося відгадати число</h3>`
+                  );
+               //Виводимо результат
+               else document.write(`Нажаль вам не вдалося вгадати число =(`);
+            }
+         </script>
+      </div>
+   </body>
+</html>
