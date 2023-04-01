@@ -1,0 +1,55 @@
+body {
+   background-color: #333;
+   color: #fff;
+   font-size: 20px;
+}
+
+table,
+tr,
+td {
+   border: 1px solid #fff;
+}
+
+tr,
+td {
+   padding: 5px 8px;
+}
+
+ul {
+   padding: 30px;
+   display: flex;
+   column-gap: 30px;
+   justify-content: center;
+}
+
+ul li {
+   list-style: none;
+   border: 1px solid #fff;
+   border-radius: 30%;
+   padding: 15px;
+   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.form__line:not(:last-child) {
+   margin-bottom: 5px;
+}
+
+.task > *:not(:last-child) {
+   margin-bottom: 15px;
+}
+
+.task__list li:not(:last-child) {
+   margin-bottom: 8px;
+}
+
+.table__column {
+   display: flex;
+   gap: 50px;
+}
+
+.result {
+   color: #ffdd00;
+   font-size: 30px;
+   text-align: center;
+   text-shadow: 0 3px 7px rgba(255, 255, 255, 0.6);
+}

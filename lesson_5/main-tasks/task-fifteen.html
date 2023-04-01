@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 15</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 15</h2>
+         <p class="task__description">
+            Користувача поступово вводить показники температури протягом року.
+            Знайти середню температуру.
+         </p>
+         <script>
+            //Змінні на константи
+            const monthsNumber = 12
+            let totalTemperature = 0
+            //Знаходимо необхідний результат
+            for (let i = 1; i <= monthsNumber; i++) {
+               const monthTemperature = parseInt(
+                  prompt(`Введіть значення температури за ${i} місяць:`)
+               )
+               document.write(
+                  `Температура за ${i} місяць: ${monthTemperature} °C<br>`
+               )
+               totalTemperature += monthTemperature
+            }
+            const averageTemperature = totalTemperature / monthsNumber
+            document.write(
+               `За розрахунками середня температура протягом року становить ${averageTemperature} °C`
+            )
+         </script>
+      </div>
+   </body>
+</html>

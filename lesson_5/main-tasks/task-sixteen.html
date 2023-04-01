@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 16</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 16</h2>
+         <p class="task__description">
+            Користувач поступово вводить прибуток магазину за кожен день
+            протягом N тижнів. Знайти загальну величину прибутку та вивести
+            величину прибутку протягом кожного окремого тижня.
+         </p>
+         <script>
+            //Введення вхідних аргументів
+            const n = parseInt(
+               prompt(
+                  `Введіть кількість тижнів, за який потрібно порахувати прибуток:`
+               )
+            )
+
+            //Змінні та константи
+            const daysOfTheWeekNumber = 7
+            let totalProfitPerWeek = 0
+            let totalProfit = 0
+            //Знаходимо необхідний результат
+            for (let i = 1; i <= n; i++) {
+               for (let j = 1; j <= daysOfTheWeekNumber; j++) {
+                  const ProfirPerDay = parseFloat(
+                     prompt(
+                        `Введіть прибуток магазину за ${j} день ${i}-го тижня:`
+                     )
+                  )
+                  totalProfitPerWeek = totalProfitPerWeek + ProfirPerDay
+               }
+               document.write(
+                  `Величина прибутку протягом ${i}-го тижня: ${totalProfitPerWeek.toFixed(
+                     2
+                  )} грн.<br>`
+               )
+               totalProfit += totalProfitPerWeek
+               totalProfitPerWeek = 0
+            }
+            document.write(
+               `Загальна величина прибутку магазину становить ${totalProfit.toFixed(
+                  2
+               )} грн`
+            )
+         </script>
+      </div>
+   </body>
+</html>

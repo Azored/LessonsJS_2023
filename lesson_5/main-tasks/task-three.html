@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 3</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 3</h2>
+         <p class="task__description">
+            Вивести таблицю з одним рядком і 7 стовпцями.
+         </p>
+         <script>
+            //Константи
+            const columnNumber = 7
+            //Знаходимо необхідний результат
+            document.write(`Результат: <table><tbody><tr>`)
+            for (let i = 1; i <= columnNumber; i++)
+               document.write(`<td>${i}</td>`)
+            document.write(`</tr></tbody></table>`)
+         </script>
+      </div>
+   </body>
+</html>

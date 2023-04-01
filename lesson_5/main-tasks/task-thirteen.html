@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 13</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 13</h2>
+         <p class="task__description">
+            Морський бій. Комп’ютер випадково розташовує одиночний корабель на
+            полі розміром N*M. Маючи К снарядів користувач намагається потопити
+            корабель.
+         </p>
+         <script>
+            //Введення вхідних аргументів
+            const n = parseInt(
+               prompt(`Створення ігрового поля. Введіть кількість стовпців:`)
+            )
+            const m = parseInt(
+               prompt(`Створення ігрового поля. Введіть кількість рядків:`)
+            )
+            let k = parseInt(
+               prompt(`Введіть кількість пострілів, доступних для користувача:`)
+            )
+
+            //Змінні
+            let result = ""
+
+            //Розрахунок розташування корабля
+            const computerShipCoordinateX = 1 + Math.floor(Math.random() * n)
+            const computerShipCoordinateY = 1 + Math.floor(Math.random() * m)
+            //Знаходимо необхідний результат
+            do {
+               const userShotX = parseInt(prompt(`Куди стріляти по осі X?:`))
+               const userShotY = parseInt(prompt(`Куди стріляти по осі Y?:`))
+               if (
+                  userShotX === computerShipCoordinateX &&
+                  userShotY === computerShipCoordinateY
+               ) {
+                  result = "Ви потопили корабель!!!"
+                  break
+               } else {
+                  k--
+                  alert(`Ви промахнулись. Доступна кількість спроб: ${k}`)
+               }
+            } while (k > 0)
+            if (k === 0)
+               result = "Ви вичерпали всі спроби для пострілу. Ви програли"
+            document.write(result)
+         </script>
+      </div>
+   </body>
+</html>

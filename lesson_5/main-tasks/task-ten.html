@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 10</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 10</h2>
+         <p class="task__description">
+            Знайти суму всіх непарних чисел, що знаходяться між заданими
+            користувачем числами.
+         </p>
+         <script>
+            //Введення вхідних аргументів
+            let startUserNumber = parseInt(
+               prompt(`Задайте початкове число інтервалу:`)
+            )
+            let endUserNumber = parseInt(
+               prompt(`Задайте кінцеве число інтервалу:`)
+            )
+
+            //Змінні
+            let oddNumberSum = 0
+            //Знаходимо необхідний результат
+            for (; startUserNumber <= endUserNumber; startUserNumber++) {
+               if (startUserNumber % 2 !== 0) oddNumberSum += startUserNumber
+            }
+            document.write(
+               `Сума непарних чисел вибраного інтервалу: ${oddNumberSum}`
+            )
+         </script>
+      </div>
+   </body>
+</html>
