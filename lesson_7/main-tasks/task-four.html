@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 4</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 4</h2>
+         <p class="task__description">
+            Створити функцію, яка для 3 заданих чисел знаходить одночасно
+            декілька результатів: кількість парних, кількість додатних,
+            кількість більших за 100.
+         </p>
+         <script>
+            //Створення функцій
+            function getEvenNumbersAmount(numberOne, numberTwo, numberThree) {
+               let evenNumbersCounter = 0
+               for (let i = 0; i < arguments.length; i++) {
+                  if (arguments[i] % 2 === 0) evenNumbersCounter++
+               }
+               return evenNumbersCounter
+            }
+
+            function getPositiveNumbersAmount(
+               numberOne,
+               numberTwo,
+               numberThree
+            ) {
+               let positiveNumbersCounter = 0
+               for (let i = 0; i < arguments.length; i++) {
+                  if (arguments[i] >= 0) positiveNumbersCounter++
+               }
+               return positiveNumbersCounter
+            }
+
+            function getNumbersAmountMoreHundred(
+               numberOne,
+               numberTwo,
+               numberThree
+            ) {
+               let numbersAmountMoreHundredCounter = 0
+               for (let i = 0; i < arguments.length; i++) {
+                  if (arguments[i] > 100) numbersAmountMoreHundredCounter++
+               }
+               return numbersAmountMoreHundredCounter
+            }
+
+            //Введення вхідних аргументів
+            const userNumberOne = parseFloat(prompt(`Введіть перше число:`, 0))
+            const userNumberTwo = parseFloat(prompt(`Введіть друге число:`, 0))
+            const userNumberThree = parseFloat(
+               prompt(`Введіть третє число:`, 0)
+            )
+
+            document.write(
+               `Ви ввели:<br>1) Перше число: ${userNumberOne}<br>2) Друге число: ${userNumberTwo}<br>3) Третє число: ${userNumberThree}<br><br><br>`
+            )
+
+            //Викликаємо функції та отримаємо необхідний результат
+            const evenNumbersAmount = getEvenNumbersAmount(
+               userNumberOne,
+               userNumberTwo,
+               userNumberThree
+            )
+            const positiveNumbersAmount = getPositiveNumbersAmount(
+               userNumberOne,
+               userNumberTwo,
+               userNumberThree
+            )
+            const numbersAmountMoreHundred = getNumbersAmountMoreHundred(
+               userNumberOne,
+               userNumberTwo,
+               userNumberThree
+            )
+
+            //Виводимо результат
+            document.write(
+               `Кількість парних чисел: ${evenNumbersAmount}<br>Кількість додатніх чисел: ${positiveNumbersAmount}<br>Кільіксть чисел, більших за 100: ${numbersAmountMoreHundred}`
+            )
+         </script>
+      </div>
+   </body>
+</html>

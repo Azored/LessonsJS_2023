@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 9</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 9</h2>
+         <p class="task__description">
+            Дано покази температур (довільна кількість). Розробити функцію, яка
+            дозволить підрахувати кількість від’ємних показів температури.
+         </p>
+         <script>
+            //Створення функції
+            function getNegativeTemperaturesQuantity() {
+               let NegativeTemperaturesCount = 0
+               let userTemperature = 0
+               while (!isNaN(userTemperature)) {
+                  userTemperature = parseInt(
+                     prompt(
+                        "Введіть покази тепрератури (якщо хочете закінчити введення показників температури, то натисність 'Скасувати'):"
+                     )
+                  )
+                  document.write(
+                     `Ви ввели температуру ${userTemperature} °C<br>`
+                  )
+                  if (userTemperature < 0) NegativeTemperaturesCount++
+               }
+               return NegativeTemperaturesCount
+            }
+
+            //Виклик функції та знаходження результату
+            const NegativeTemperaturesQuantity =
+               getNegativeTemperaturesQuantity()
+            //Виведення результату
+            document.write(
+               `Кількість від'ємних показів температури: ${NegativeTemperaturesQuantity}`
+            )
+         </script>
+      </div>
+   </body>
+</html>

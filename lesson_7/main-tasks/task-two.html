@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 2</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 2</h2>
+         <p class="task__description">
+            Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей
+            день робочим.
+         </p>
+         <script>
+            //Створення функції
+            function getWorkWeekDay(weekDayNumber) {
+               let result
+               switch (weekDayNumber) {
+                  case 1:
+                  case 2:
+                  case 3:
+                  case 4:
+                  case 5:
+                     result = "Робочий день"
+                     break
+                  case 6:
+                  case 7:
+                     result = "Вихідний день"
+                     break
+                  default:
+                     result = "Введено неправильні дані"
+                     break
+               }
+               return result
+            }
+            //Введення вхідних аргументів
+            const userWeekDayNumber = parseInt(
+               prompt(`Введіть номер дня тижня:`)
+            )
+            //Знаходимо необхідний результат
+            const workWeekDay = getWorkWeekDay(userWeekDayNumber)
+            //Виводимо результат
+            document.write(
+               `За введеним вами номером дня тижня знайдено результат: ${workWeekDay}`
+            )
+         </script>
+      </div>
+   </body>
+</html>

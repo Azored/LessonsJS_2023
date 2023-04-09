@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 10</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 10</h2>
+         <p class="task__description">
+            Дано покази температур (довільна кількість). Розробити функцію, яка
+            дозволить знайти середнє значення для додатних показів температури.
+         </p>
+         <script>
+            //Створення функції
+            function getAveragePositiveTemperaturesValue() {
+               let userTemperature = 0
+               let postiveTemperaturesSum = 0
+               let postiveTemperaturesCount = 0
+               while (!isNaN(userTemperature)) {
+                  userTemperature = parseInt(
+                     prompt(
+                        "Введіть покази тепрератури (якщо хочете закінчити введення показників температури, то натисність 'Скасувати'):"
+                     )
+                  )
+                  document.write(
+                     `Ви ввели температуру ${userTemperature} °C<br>`
+                  )
+                  if (userTemperature > 0) {
+                     postiveTemperaturesSum += userTemperature
+                     postiveTemperaturesCount++
+                  }
+               }
+               // document.write(
+               //    `Сума додатних температур: ${postiveTemperaturesSum}<br>Кількість додатних температур: ${postiveTemperaturesCount}<br>`
+               // )
+               return postiveTemperaturesSum / postiveTemperaturesCount
+            }
+            //Виклик функції та знаходження рехультату
+            const AveragePositiveTemperaturesValue =
+               getAveragePositiveTemperaturesValue()
+            //Виведення результату
+            document.write(
+               `Середнє значення для додатних показів температури: ${AveragePositiveTemperaturesValue} °C`
+            )
+         </script>
+      </div>
+   </body>
+</html>

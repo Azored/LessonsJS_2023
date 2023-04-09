@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 0</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 2</h2>
+         <p class="task__description">
+            Створити функцію, яка за номером місяця повертає пору року, до якої
+            відноситься цей місяць.
+         </p>
+         <script>
+            //Написання функції
+            function getYearSeason(monthNumber) {
+               let result = ""
+               switch (monthNumber) {
+                  case 1:
+                  case 2:
+                  case 12:
+                     result =
+                        "Вибраний вами місяць відноситься до зимової пори року"
+                     break
+                  case 3:
+                  case 4:
+                  case 5:
+                     result =
+                        "Вибраний вами місяць відноситься до весняної пори року"
+                     break
+                  case 6:
+                  case 7:
+                  case 8:
+                     result =
+                        "Вибраний вами місяць відноситься до літньої пори року"
+                     break
+                  case 9:
+                  case 10:
+                  case 11:
+                     result =
+                        "Вибраний вами місяць відноситься до осінньої пори року"
+                     break
+                  default:
+                     result = "Ви ввели неправильні дані"
+                     break
+               }
+               return result
+            }
+
+            //Введення вхідних аргументів
+            const monthNumber = parseInt(
+               prompt(
+                  `Введіть номер місяця, для якого потрібно знайти пору року:`
+               )
+            )
+            //Знаходимо необхідний результат
+            const YearSeason = getYearSeason(monthNumber)
+            //Виводимо результат
+            document.write(`${YearSeason}`)
+         </script>
+      </div>
+   </body>
+</html>
+13

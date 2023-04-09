@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 5</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 5</h2>
+         <p class="task__description">
+            Створити окремі функції, які переводять:<br />1) Сантиметри у
+            дюйми;<br />2) Кілограми у фунти;<br />3) Кілометри у милі.
+         </p>
+         <script>
+            //Створення функцій
+            function getInches(centimeters) {
+               const oneInchInСentimeters = 0.39
+               return centimeters * oneInchInСentimeters
+            }
+            function getPounds(kilograms) {
+               const onePoundInKilograms = 2.2
+               return kilograms * onePoundInKilograms
+            }
+            function getMiles(kilometers) {
+               const oneMileInKilograms = 0.62
+               return kilometers * oneMileInKilograms
+            }
+
+            //Введення вхідних аргументів
+            const userCentimetersValue = parseFloat(
+               prompt(`Введіть сантиметри:`)
+            )
+            const userKilogramsValue = parseFloat(prompt(`Введіть кілограми:`))
+            const userKilometersValue = parseFloat(prompt(`Введіть кілометри:`))
+
+            document.write(
+               `Ви ввели:<br>${userCentimetersValue} см<br>${userKilogramsValue} кг<br>${userKilometersValue} км<br><br><br>`
+            )
+            //Виклик фунуцій та знахлдження результату
+            const iches = getInches(userCentimetersValue)
+            const pounds = getPounds(userKilogramsValue)
+            const miles = getMiles(userKilometersValue)
+
+            //Виведення результату
+            document.write(
+               `Результат переведених величин:<br>Сантиметри => дюйми: ${iches.toFixed(
+                  2
+               )}<br>Кілограми => фунти: ${pounds.toFixed(
+                  2
+               )}<br>Кілометри => милі: ${miles.toFixed(2)}`
+            )
+         </script>
+      </div>
+   </body>
+</html>

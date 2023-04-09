@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 8</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 8</h2>
+         <p class="task__description">
+            Створити функцію, яка виводить банер (у функцію передаються:
+            зображення, заголовок та посилання, куди переходимо при кліку на
+            зображення (тег img повине знаходитись у середині тега a.
+         </p>
+         <script>
+            //Створення функції
+            function getBanner(image, title, link) {
+               const result = `<div class="banner">
+            <h2 class="banner__title">${title}</h2>
+            <a href="${link}">
+               <img src="${image}" alt="Image">
+            </a>
+         </div>`
+               return result
+            }
+            //Введення вхідних аргументів
+            const bannerTitle = prompt(
+               "Введіть заголовок для банеру:",
+               "Заголовок банеру"
+            )
+            const bannerLink = prompt(
+               "Введіть посилання для банеру:",
+               "https://www.google.com.ua/"
+            )
+            //Константи та змінні
+            const bannerImageFolder = "../img/banner.jpg"
+            //Викликаємо функцію та знаходимо результат
+            const banner = getBanner(bannerImageFolder, bannerTitle, bannerLink)
+            //Виводимо результат
+            document.write(`${banner}`)
+         </script>
+         <!-- <div class="banner">
+            <h2 class="banner__title">${title}</h2>
+            <a class="banner__link" href="${link}">
+               <img class="banner__image" src="${image}" alt="Image" />
+            </a>
+         </div> -->
+      </div>
+   </body>
+</html>

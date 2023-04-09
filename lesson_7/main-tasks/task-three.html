@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 3</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 3</h2>
+         <p class="task__description">
+            Створити окремі функції, які для 4 чисел знаходять:<br />1)суму;<br />2)добуток;<br />3)середнє
+            арифметичне;<br />4)мінімальне значення.
+         </p>
+         <script>
+            //Створення функцій
+            function getSum(numberOne, numberTwo, numberThree, numberFour) {
+               return numberOne + numberTwo + numberThree + numberFour
+            }
+            function getProduct(numberOne, numberTwo, numberThree, numberFour) {
+               return numberOne * numberTwo * numberThree * numberFour
+            }
+            function getAverageValue(
+               numberOne,
+               numberTwo,
+               numberThree,
+               numberFour
+            ) {
+               return (numberOne + numberTwo + numberThree + numberFour) / 4
+            }
+            function getMinValue(
+               numberOne,
+               numberTwo,
+               numberThree,
+               numberFour
+            ) {
+               let minNumber = numberOne
+               if (numberTwo < minNumber) minNumber = numberTwo
+               else if (numberThree < minNumber) minNumber = numberThree
+               else if (numberFour < minNumber) minNumber = numberFour
+               return minNumber
+            }
+            //Введення вхідних аргументів
+            const userNumberOne = parseFloat(prompt(`Введіть перше число:`, 0))
+            const userNumberTwo = parseFloat(prompt(`Введіть друге число:`, 0))
+            const userNumberThree = parseFloat(
+               prompt(`Введіть третє число:`, 0)
+            )
+            const userNumberFour = parseFloat(
+               prompt(`Введіть четверте число:`, 0)
+            )
+
+            document.write(
+               `Ви ввели:<br>1) Перше число: ${userNumberOne}<br>2) Друге число: ${userNumberTwo}<br>3) Третє число: ${userNumberThree}<br>4) Четверте число: ${userNumberFour}<br><br><br>`
+            )
+
+            //Викликаємо функції та отримуємо необхідний результат
+            const sum = getSum(
+               userNumberOne,
+               userNumberTwo,
+               userNumberThree,
+               userNumberFour
+            )
+            const product = getProduct(
+               userNumberOne,
+               userNumberTwo,
+               userNumberThree,
+               userNumberFour
+            )
+            const averageValue = getAverageValue(
+               userNumberOne,
+               userNumberTwo,
+               userNumberThree,
+               userNumberFour
+            )
+            const minValue = getMinValue(
+               userNumberOne,
+               userNumberTwo,
+               userNumberThree,
+               userNumberFour
+            )
+            //Виводимо результат
+            document.write(
+               `Сума чисел: ${sum}<br>Добуток чисел: ${product}<br>Середнє арифметичне: ${averageValue}<br>Мінімальне значення: ${minValue}`
+            )
+         </script>
+      </div>
+   </body>
+</html>
