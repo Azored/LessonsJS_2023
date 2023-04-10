@@ -38,17 +38,11 @@
             )
             //Константи та змінні
             const bannerImageFolder = "../img/banner.jpg"
-            //Викликаємо функцію та знаходимо результат
-            const banner = getBanner(bannerImageFolder, bannerTitle, bannerLink)
             //Виводимо результат
-            document.write(`${banner}`)
+            document.write(
+               getBanner(bannerImageFolder, bannerTitle, bannerLink)
+            )
          </script>
-         <!-- <div class="banner">
-            <h2 class="banner__title">${title}</h2>
-            <a class="banner__link" href="${link}">
-               <img class="banner__image" src="${image}" alt="Image" />
-            </a>
-         </div> -->
       </div>
    </body>
 </html>

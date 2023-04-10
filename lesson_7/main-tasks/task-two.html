@@ -17,35 +17,17 @@
          </p>
          <script>
             //Створення функції
-            function getWorkWeekDay(weekDayNumber) {
-               let result
-               switch (weekDayNumber) {
-                  case 1:
-                  case 2:
-                  case 3:
-                  case 4:
-                  case 5:
-                     result = "Робочий день"
-                     break
-                  case 6:
-                  case 7:
-                     result = "Вихідний день"
-                     break
-                  default:
-                     result = "Введено неправильні дані"
-                     break
-               }
-               return result
+            function isWorkWeekDay(weekDayNumber) {
+               return weekDayNumber <= 5 ? "Робочий день" : "Вихідний день"
             }
             //Введення вхідних аргументів
             const userWeekDayNumber = parseInt(
                prompt(`Введіть номер дня тижня:`)
             )
-            //Знаходимо необхідний результат
-            const workWeekDay = getWorkWeekDay(userWeekDayNumber)
             //Виводимо результат
             document.write(
-               `За введеним вами номером дня тижня знайдено результат: ${workWeekDay}`
+               `За введеним вами номером дня тижня знайдено результат: `,
+               isWorkWeekDay(userWeekDayNumber)
             )
          </script>
       </div>

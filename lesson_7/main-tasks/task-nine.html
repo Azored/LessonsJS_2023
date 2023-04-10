@@ -18,28 +18,28 @@
          <script>
             //Створення функції
             function getNegativeTemperaturesQuantity() {
-               let NegativeTemperaturesCount = 0
+               let negativeTemperaturesCount = 0
                let userTemperature = 0
                while (!isNaN(userTemperature)) {
                   userTemperature = parseInt(
                      prompt(
-                        "Введіть покази тепрератури (якщо хочете закінчити введення показників температури, то натисність 'Скасувати'):"
+                        "Введіть покази температури (якщо хочете закінчити введення показників температури, то натисність 'Скасувати'):"
                      )
                   )
                   document.write(
                      `Ви ввели температуру ${userTemperature} °C<br>`
                   )
-                  if (userTemperature < 0) NegativeTemperaturesCount++
+                  if (userTemperature < 0) negativeTemperaturesCount++
                }
-               return NegativeTemperaturesCount
+               return negativeTemperaturesCount
             }
 
             //Виклик функції та знаходження результату
-            const NegativeTemperaturesQuantity =
+            const negativeTemperaturesQuantity =
                getNegativeTemperaturesQuantity()
             //Виведення результату
             document.write(
-               `Кількість від'ємних показів температури: ${NegativeTemperaturesQuantity}`
+               `Кількість від'ємних показів температури: ${negativeTemperaturesQuantity}`
             )
          </script>
       </div>

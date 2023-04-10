@@ -40,12 +40,14 @@
                // )
                return postiveTemperaturesSum / postiveTemperaturesCount
             }
-            //Виклик функції та знаходження рехультату
-            const AveragePositiveTemperaturesValue =
+            //Виклик функції та знаходження результату
+            const averagePositiveTemperaturesValue =
                getAveragePositiveTemperaturesValue()
             //Виведення результату
             document.write(
-               `Середнє значення для додатних показів температури: ${AveragePositiveTemperaturesValue} °C`
+               `Середнє значення для додатних показів температури: ${averagePositiveTemperaturesValue.toFixed(
+                  2
+               )} °C`
             )
          </script>
       </div>

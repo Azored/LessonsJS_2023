@@ -10,7 +10,7 @@
 
    <body>
       <div class="task">
-         <h2 class="task__title">Задача 2</h2>
+         <h2 class="task__title">Задача 0</h2>
          <p class="task__description">
             Створити функцію, яка за номером місяця повертає пору року, до якої
             відноситься цей місяць.
@@ -52,17 +52,14 @@
             }
 
             //Введення вхідних аргументів
-            const monthNumber = parseInt(
+            const userNumber = parseInt(
                prompt(
                   `Введіть номер місяця, для якого потрібно знайти пору року:`
                )
             )
-            //Знаходимо необхідний результат
-            const YearSeason = getYearSeason(monthNumber)
             //Виводимо результат
-            document.write(`${YearSeason}`)
+            document.write(getYearSeason(userNumber))
          </script>
       </div>
    </body>
 </html>
-13

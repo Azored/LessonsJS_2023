@@ -66,11 +66,11 @@
                prompt(`Введіть номер місяця, назву якого хочете отримати:`)
             )
 
-            //Знаходимо результат
-            const monthName = getMonthName(userMonthNumber)
-
             //Виводимо результат
-            document.write(`За вашим номером отримано результат: ${monthName}`)
+            document.write(
+               "За вашим номером отримано результат: ",
+               getMonthName(userMonthNumber)
+            )
          </script>
       </div>
    </body>
