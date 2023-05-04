@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 5</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 5</h2>
+         <p class="task__description">
+            Дано послідовність оцінок учня. Підрахувати кількість:
+         </p>
+         <ul>
+            <li>двійок;</li>
+            <li>кількість хороших оцінок (добре, відмінно);</li>
+            <li>кількість оцінок, які нижче середнього;</li>
+         </ul>
+         <script>
+            //Створення функцій
+            function getQuantityBadMarks(marksArray) {
+               let result = 0
+               for (let i = 0; i < marksArray.length; i++)
+                  if (marksArray[i] === 2) result++
+               return result
+            }
+            function getQuantityGoodMarks(marksArray) {
+               let result = 0
+               for (i = 0; i < marksArray.length; i++)
+                  if (marksArray[i] > 6) {
+                     result++
+                  }
+               return result
+            }
+            function getAverageMark(marksArray) {
+               let averageMark = 0
+               for (let i = 0; i < marksArray.length; i++)
+                  averageMark += marksArray[i]
+               return averageMark / marksArray.length
+            }
+            function getQuantityMarksLessAverage(marksArray) {
+               let result = 0
+               const averageMark = getAverageMark(marksArray)
+               for (let i = 0; i < marksArray.length; i++)
+                  if (marksArray[i] < averageMark) result++
+               return result
+            }
+            //Створення масиву та його заповненя аргументами
+            const marksArray = [2, 8, 9, 10, 3, 11, 8, 7, 3, 6, 12, 5, 2]
+            //Виклик фунуцій та знахлдження результату
+            const quantityBadMarks = getQuantityBadMarks(marksArray)
+            const quantityGoodMarks = getQuantityGoodMarks(marksArray)
+            const temp = getAverageMark(marksArray)
+            const quantityMarksLessAverage =
+               getQuantityMarksLessAverage(marksArray)
+            //Виведення результату
+            document.write(`Масив оцінок учня: ${marksArray}<br>`)
+            document.write(
+               `Кількість двійок: ${quantityBadMarks}<br>Кількість хороших оцінок (добре, відмінно): ${quantityGoodMarks}<br>`
+            )
+            document.write(
+               `Кількість оцінок, які нижче середнього: ${quantityMarksLessAverage}`
+            )
+         </script>
+      </div>
+   </body>
+</html>

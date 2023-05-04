@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 7</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 7</h2>
+         <p class="task__description">
+            Дано послідовність платіжок протягом року. Знайти сумарну кількість
+            грошей за:
+         </p>
+         <ol>
+            <li>За весь рік;</li>
+            <li>У першій половині року;</li>
+            <li>У другій половині року;</li>
+            <li>За літо;</li>
+            <li>За ІІ квартал;</li>
+            <li>За парні місяці (з парними номерами);</li>
+            <li>
+               За місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+            </li>
+         </ol>
+         <script>
+            //Створення функцій
+            function createArray(quantityItems) {
+               let createdArray = []
+               for (let i = 0; i < quantityItems; i++) {
+                  const arrayItem = parseFloat(
+                     prompt(
+                        `Введіть суму в грн з платіжки за ${
+                           i + 1
+                        }-ий місяць року:`
+                     )
+                  )
+                  createdArray.push(arrayItem)
+               }
+               return createdArray
+            }
+            function getSumOfPaymentForSelectedPeriod(
+               paymentsOrderList,
+               startPeriod,
+               endPeriod
+            ) {
+               let result = 0
+               for (let i = startPeriod; i <= endPeriod; i++)
+                  result += paymentsOrderList[i - 1]
+               return result
+            }
+            function getSumOfPaymentForCorrespondingMonth(
+               paymentsOrderList,
+               divisor
+            ) {
+               let result = 0
+               for (let i = 0; i < paymentsOrderList.length; i++) {
+                  let numberMonth = i + 1
+                  if (numberMonth % divisor === 0)
+                     result += paymentsOrderList[i]
+               }
+               return result
+            }
+            //Виклик функцій
+            const paymentsOrderList = createArray(12)
+            const sumOfPaymentForYear = getSumOfPaymentForSelectedPeriod(
+               paymentsOrderList,
+               1,
+               12
+            )
+            const sumOfPaymentForFirstHalfYear =
+               getSumOfPaymentForSelectedPeriod(paymentsOrderList, 1, 6)
+            const sumOfPaymentForSecondHalfYear =
+               getSumOfPaymentForSelectedPeriod(paymentsOrderList, 7, 12)
+            const sumOfPaymentForSummer = getSumOfPaymentForSelectedPeriod(
+               paymentsOrderList,
+               6,
+               8
+            )
+            const sumOfPaymentForSecondYearQuarter =
+               getSumOfPaymentForSelectedPeriod(paymentsOrderList, 4, 6)
+            const sumOfPaymentForEvenMonth =
+               getSumOfPaymentForCorrespondingMonth(paymentsOrderList, 2)
+            const sumOfPaymentForFirstMonthInSeason =
+               getSumOfPaymentForCorrespondingMonth(paymentsOrderList, 3)
+            //Виведення результату
+            document.write(
+               `Введена послідовність платіжок протягом року: ${paymentsOrderList}<br>`
+            )
+            document.write(
+               `1) Сумарна кількість грошей за весь рік: ${sumOfPaymentForYear.toFixed(
+                  2
+               )} грн<br>`
+            )
+            document.write(
+               `2) Сумарна кількість грошей за першу половину року: ${sumOfPaymentForFirstHalfYear.toFixed(
+                  2
+               )} грн<br>`
+            )
+            document.write(
+               `3) Сумарна кількість грошей за другу половину року: ${sumOfPaymentForSecondHalfYear.toFixed(
+                  2
+               )} грн<br>`
+            )
+            document.write(
+               `4) Сумарна кількість грошей за літо: ${sumOfPaymentForSummer.toFixed(
+                  2
+               )} грн<br>`
+            )
+            document.write(
+               `5) Сумарна кількість грошей за ІІ квартал: ${sumOfPaymentForSecondYearQuarter.toFixed(
+                  2
+               )} грн<br>`
+            )
+            document.write(
+               `6) Сумарна кількість грошей за парні місяці: ${sumOfPaymentForEvenMonth.toFixed(
+                  2
+               )} грн<br>`
+            )
+            document.write(
+               `7) Сумарна кількість грошей за місяці, які є початковими у сезоні (весна, літо, осінь, зима): ${sumOfPaymentForFirstMonthInSeason.toFixed(
+                  2
+               )} грн`
+            )
+         </script>
+      </div>
+   </body>
+</html>

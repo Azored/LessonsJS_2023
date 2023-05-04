@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 4</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 4</h2>
+         <p class="task__description">
+            Дано послідовність номерів автомобілів. Підрахувати кількість
+            номерів, які :
+         </p>
+         <ul>
+            <li>починаються на букву «А»;</li>
+            <li>перша і остання літери співпадають;</li>
+            <li>складаються з більше ніш 5 символів;</li>
+         </ul>
+         <script>
+            //Створення функцій
+            function getCarNumbersWithFirstCharacter(carNumbers) {
+               let result = 0
+               for (let i = 0; i < carNumbers.length; i++) {
+                  const carNumber = carNumbers[i]
+                  if (carNumber[0] === "A") result++
+               }
+               return result
+            }
+            function getCarNumbersWithSameFirstAndLastCharacter(carNumbers) {
+               let result = 0
+               for (let i = 0; i < carNumbers.length; i++) {
+                  const carNumber = carNumbers[i]
+                  if (carNumber[0] === carNumber[carNumber.length - 1]) result++
+               }
+               return result
+            }
+            function getCarNumbersWithLengthMoreThenFiveCharacters(carNumbers) {
+               let result = 0
+               for (let i = 0; i < carNumbers.length; i++) {
+                  const carNumber = carNumbers[i]
+                  if (carNumber.length > 5) result++
+               }
+               return result
+            }
+            //Введення вхідних аргументів
+            const carNumbers = [
+               "AA3453AT",
+               "AA6784AA",
+               "BC3242AB",
+               "KP3431MR",
+               "AA42A",
+               "BP42N",
+               "CY5376BC",
+            ]
+            //Викликаємо функції та отримаємо необхідний результат
+            const quantityNumbersWithFirstACharacter =
+               getCarNumbersWithFirstCharacter(carNumbers)
+            const quantityNumbersWithSameFirstAndLastCharacter =
+               getCarNumbersWithSameFirstAndLastCharacter(carNumbers)
+            const quantityNumbersWithLengthMoreThenFiveCharacters =
+               getCarNumbersWithLengthMoreThenFiveCharacters(carNumbers)
+            //Виводимо результат
+            document.write(`Масив номерів автомобілів: ${carNumbers}<br><br>`)
+            document.write(
+               `1) Кількість номерів автомобілів, які починаються на букву «А»: ${quantityNumbersWithFirstACharacter}<br><br>`
+            )
+            document.write(
+               `2) Кількість номерів автомобілів, у яких перша і остання літери співпадають: ${quantityNumbersWithSameFirstAndLastCharacter}<br><br>`
+            )
+            document.write(
+               `3)Кількість номерів автомобілів, які складаються з більше ніш 5 символів: ${quantityNumbersWithLengthMoreThenFiveCharacters}`
+            )
+         </script>
+      </div>
+   </body>
+</html>

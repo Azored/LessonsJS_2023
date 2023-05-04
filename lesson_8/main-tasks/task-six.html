@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 6</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 6</h2>
+         <p class="task__description">
+            Дано послідовність цін товарів та назв (у окремих масивах). Вивести
+            на екран ті, які може собі дозволити користувач (кількість грошей
+            задається).
+         </p>
+         <script>
+            //Створення функції
+            function getAvailableItems(
+               costsArray,
+               itemsArray,
+               amountUserMoney
+            ) {
+               let availableItemsArray = []
+               for (let i = 0; i < itemsArray.length; i++)
+                  if (amountUserMoney >= costsArray[i]) {
+                     availableItemsArray.push(itemsArray[i])
+                     amountUserMoney -= costsArray[i]
+                  }
+               return availableItemsArray
+            }
+            //Створення масівів та їх заповненя
+            const itemsCost = [35, 25, 120, 310, 15, 40, 70, 90, 55]
+            const itemsArray = [
+               "Молоко",
+               "Хліб",
+               "Морозиво",
+               "Лосось",
+               "Банан",
+               "Консерви",
+               "Сир",
+               "Ковбаса",
+               "Сік",
+            ]
+            //Введення вхідних аргументів
+            let amountUserMoney = parseFloat(
+               prompt("Введіть суму грошей (грн):")
+            )
+            //Виклик функції та знаходження результату
+            const availableItems = getAvailableItems(
+               itemsCost,
+               itemsArray,
+               amountUserMoney
+            )
+            //Виведення результату
+            document.write(
+               `Список товарів: ${itemsArray}<br><br>Список цін товарів: ${itemsCost}<br><br>`
+            )
+            document.write(
+               `Ви ввели сумму ${amountUserMoney} грн. На цю суму ви можете придбати наступні товари: ${availableItems}`
+            )
+         </script>
+      </div>
+   </body>
+</html>

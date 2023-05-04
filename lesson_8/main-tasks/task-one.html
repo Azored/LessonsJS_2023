@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 1</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 1</h2>
+         <p class="task__description">
+            Дано масив, який містить оцінки з К предметів. Знайти середній бал і
+            з’ясувати до якої категорії він відноситься (відмінник, двійочник
+            (має хоча би одну двійку), хорошист (оцінки добре і відмінно),
+            трійочник(є хоча би одна трійка)).
+         </p>
+         <script>
+            //Написання функції
+            function getAverageMark(marks) {
+               let markSum = 0
+               for (let i = 0; i < marks.length; i++) markSum += marks[i]
+               return markSum / marks.length
+            }
+
+            function getStudentCategory(marks) {
+               let result = ""
+               let loserStudent = false
+               let sufficientStudent = false
+               let goodStudent = false
+               let exellentStudent = false
+               let hasThree
+               for (let i = 0; i < marks.length; i++) {
+                  if (marks[i] < 4) loserStudent = true
+                  else if (marks[i] > 3 && marks[i] < 7)
+                     sufficientStudent = true
+                  else if (marks[i] > 6 && marks[i] < 10) goodStudent = true
+                  else exellentStudent = true
+               }
+               if (loserStudent) result = "Учень двійочник"
+               else if (sufficientStudent) result = "Учень трійочник"
+               else if (goodStudent) result = "Учень хорошист"
+               else result = "Учень відмінник"
+               return result
+            }
+
+            //Введення вхідних аргументів
+            const k = parseInt(prompt("Введіть кількість предметів:"))
+
+            //Створення масиву та його заповненя
+            let markArr = new Array(k)
+            for (let i = 0; i < markArr.length; i++) {
+               // let mark = parseInt(
+               //    prompt(`Введіть оцінку з ${i + 1}-го предмету:`)
+               // )
+               markArr[i] = parseInt(
+                  prompt(`Введіть оцінку з ${i + 1}-го предмету:`)
+               )
+            }
+
+            //Знаходимо результат
+            const averageMark = getAverageMark(markArr)
+            const studentCategory = getStudentCategory(markArr)
+            //Виводимо результат
+            document.write(`Введено наступні оцінки: ${markArr}<br>`)
+            document.write(
+               `Середній бал учня: ${averageMark.toFixed(
+                  1
+               )}<br>${studentCategory}`
+            )
+         </script>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 2</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 2</h2>
+         <p class="task__description">
+            Дано масив, який зберігає кількість відвідувачів магазину протягом
+            тижня. Вивести на екран:
+         </p>
+         <ul>
+            <li>
+               номери днів, протягом яких кількість відвідувачів була меншою за
+               20;
+            </li>
+            <li>номери днів, коли кількість відвідувачів була мінімальною;</li>
+            <li>номери днів, коли кількість відвідувачів була максимальною;</li>
+            <li>
+               загальну кількість клієнтів у робочі дні та окремо загальну
+               кількість днів на вихідних.
+            </li>
+         </ul>
+         <script>
+            //Створення функцій
+            function getDayNumbersWithVisitorsMoreTwenty(argumentsArray) {
+               let resultsArray = []
+               for (i = 0; i < argumentsArray.length; i++) {
+                  if (argumentsArray[i] < 20) resultsArray.push(i + 1)
+               }
+               return resultsArray
+            }
+            function getDayNumberWithMinimumVisitors(argumentsArray) {
+               let resultArray = []
+               let minValue = argumentsArray[0]
+               for (let i = 1; i < argumentsArray.length; i++)
+                  if (minValue > argumentsArray[i]) minValue = argumentsArray[i]
+               for (let i = 0; i < argumentsArray.length; i++)
+                  if (minValue === argumentsArray[i]) resultArray.push(i + 1)
+               return resultArray
+            }
+            function getDayNumberWithMaximumVisitors(argumentsArray) {
+               let resultArray = []
+               let maxValue = argumentsArray[0]
+               for (let i = 1; i < argumentsArray.length; i++)
+                  if (maxValue < argumentsArray[i]) maxValue = argumentsArray[i]
+               for (let i = 0; i < argumentsArray.length; i++)
+                  if (maxValue === argumentsArray[i]) resultArray.push(i + 1)
+               return resultArray
+            }
+            function getTotalVisitorsQuantity(argumentsArray) {
+               let resultsArray = []
+               let visitorsQuantityForWorkingDays = 0
+               let visitorsQuantityForWeekend = 0
+               for (let i = 0; i < 5; i++)
+                  visitorsQuantityForWorkingDays += argumentsArray[i]
+               resultsArray.push(visitorsQuantityForWorkingDays)
+               for (let i = 5; i <= 6; i++)
+                  visitorsQuantityForWeekend += argumentsArray[i]
+               resultsArray.push(visitorsQuantityForWeekend)
+               return resultsArray
+            }
+
+            //Створення масиву та заповненя його аргументами
+            let visitorsQuantityArray = new Array(7)
+            for (i = 0; i < visitorsQuantityArray.length; i++)
+               visitorsQuantityArray[i] = parseInt(
+                  prompt(
+                     `Введіть кількість відвідувачів магазину за ${
+                        i + 1
+                     }-й день тижня:`
+                  )
+               )
+            //Знаходимо необхідни результат
+            const dayNumbersWithVisitorsMoreTwenty =
+               getDayNumbersWithVisitorsMoreTwenty(visitorsQuantityArray)
+            const dayNumberWithMinimumVisitors =
+               getDayNumberWithMinimumVisitors(visitorsQuantityArray)
+            const dayNumberWithMaximumVisitors =
+               getDayNumberWithMaximumVisitors(visitorsQuantityArray)
+            const totalVisitorsQuantity = getTotalVisitorsQuantity(
+               visitorsQuantityArray
+            )
+            //Виводимо результат
+            document.write(
+               `Масив з кількістю відвідувачів магазину протягом тижня: ${visitorsQuantityArray}<br>`
+            )
+            document.write(
+               `1) Номери днів, протягом яких кількість відвідувачів була меншою за 20: ${dayNumbersWithVisitorsMoreTwenty}<br>`
+            )
+            document.write(
+               `2) Номери днів, коли кількість відвідувачів була мінімальною: ${dayNumberWithMinimumVisitors}<br>`
+            )
+            document.write(
+               `3) Номери днів, коли кількість відвідувачів була максимальною: ${dayNumberWithMaximumVisitors}<br>`
+            )
+            document.write(
+               `4) Загальна кількість клієнтів за робочі дні дорівнює ${totalVisitorsQuantity[0]}, а за вихідні - ${totalVisitorsQuantity[1]}`
+            )
+         </script>
+      </div>
+   </body>
+</html>

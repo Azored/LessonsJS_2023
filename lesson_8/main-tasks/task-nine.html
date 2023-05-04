@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 9</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 9</h2>
+         <p class="task__description">
+            Морський бій. Користувач вводить кількість клітинок одновимірного
+            масиву та кількість одиночних кораблів. Комп’ютер довільно розміщує
+            ці одиночні кораблі у масиві по один у клітинці (якщо у клітинці 0,
+            то клітинка пуста, якщо 1 – то це означає, що там є корабель.
+            Користувач вводить номер клітинки, куди стріляє. Гра продовжується
+            до тих пір, поки не будуть потоплені усі кораблі.
+         </p>
+         <script>
+            //Створення функцій
+            function getGameField(numberOfFieldCells) {
+               const gameFieldArray = []
+               for (let i = 0; i < numberOfFieldCells; i++)
+                  gameFieldArray.push(0)
+               return gameFieldArray
+            }
+            function getShipLocationMap(numberOfFieldCells, shipsQuantity) {
+               let gameField = getGameField(numberOfFieldCells)
+               let i = 0
+               while (i < shipsQuantity) {
+                  const shipLocation =
+                     1 + Math.floor(Math.random() * gameField.length)
+                  if (gameField[shipLocation - 1] !== 1) {
+                     gameField[shipLocation - 1] = 1
+                     shipsQuantity--
+                  }
+               }
+               return gameField
+            }
+            //Введення вхідних аргументів
+            const numberOfFieldCells = parseInt(
+               prompt("Введіть кількість клітинок ігрового поля:")
+            )
+            const shipsQuantity = parseInt(
+               prompt(
+                  "Введіть кількість одиночних кораблів, які будуть розміщені на ігровому полі:"
+               )
+            )
+            //Змінні
+            let shipsCounter = shipsQuantity
+            //Створення ігрового та розміщення на ньому кораблів
+            const gameFieldWithShips = getShipLocationMap(
+               numberOfFieldCells,
+               shipsQuantity
+            )
+            // Користувач виконує стрільбу, поки не потопить всі кораблі
+            do {
+               const userShot = parseInt(
+                  prompt("Виберіть клітинку, куди хочете вистрілити:")
+               )
+               if (userShot <= gameFieldWithShips.length && userShot > 0) {
+                  if (gameFieldWithShips[userShot - 1] === 1) {
+                     gameFieldWithShips[userShot - 1] = 0
+                     shipsCounter--
+                     alert(
+                        `Вітаємо, ви потопили корабель! Залишилось ще ${shipsCounter}`
+                     )
+                  } else alert("Ви промахнулись")
+               } else alert("Ви вистрілили за межі поля")
+            } while (shipsCounter !== 0)
+            //Виведення результату
+            document.write("Вітаємо, ви потопили всі кораблі!")
+         </script>
+      </div>
+   </body>
+</html>

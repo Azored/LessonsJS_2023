@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 8</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 8</h2>
+         <p class="task__description">
+            Дано одновимірний масив, у якому зберігається певна виграшна сума
+            (елементи заповнюються випадковим чином значеннями від -500 до 500).
+            Надаючи користувачу можливість вибирати номери елементів (поки він
+            не відмовиться). Знаходити сумарний виграш.
+         </p>
+         <script>
+            //Створення функції
+            function getMoneyArray(
+               moneyItemsQuantity,
+               minMoneyAmount,
+               maxMoneyAmount
+            ) {
+               let moneyResult = []
+               for (let i = 0; i < moneyItemsQuantity; i++) {
+                  const randomMoneyAmount =
+                     minMoneyAmount +
+                     Math.floor(
+                        Math.random() * (maxMoneyAmount - minMoneyAmount + 1)
+                     )
+                  moneyResult.push(randomMoneyAmount)
+               }
+               return moneyResult
+            }
+            function getMoneyAmount(moneyArray, userValue) {
+               return moneyArray[userValue - 1]
+            }
+            //Введення вхідних аргументів
+            const moneyArray = getMoneyArray(16, -500, 500)
+            //Змінні
+            let totalProfit = 0
+            //Знаходимо результат
+            alert(
+               "Вам представлений масив з 16 комірок, кожна з яких містить в собі певну суму грошей."
+            )
+            while (true) {
+               const userChoice = confirm(
+                  "Бажаєте зіграти в гру та отримати грошовий приз?"
+               )
+               if (userChoice) {
+                  const userValue = parseInt(
+                     prompt(
+                        "Виберіть номер комірки, яку бажаєте відкрити(1 - 16):"
+                     )
+                  )
+                  const moneyAmount = getMoneyAmount(moneyArray, userValue)
+                  totalProfit += moneyAmount
+                  alert(
+                     `Ви виграли ${moneyAmount} грн. Загальна сума вашого виграшу становить ${totalProfit} грн.`
+                  )
+               } else {
+                  alert(`Ви вирішили не продовжувати гру.`)
+                  break
+               }
+            }
+            //Виводимо результат
+            document.write(
+               `Ваша загальна сума виграшу становаить ${totalProfit} грн`
+            )
+         </script>
+      </div>
+   </body>
+</html>
