@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/tasks.css" />
+      <title>Задача 1</title>
+   </head>
+
+   <body>
+      <div class="task">
+         <h2 class="task__title">Задача 1</h2>
+         <p class="task__description">
+            Користувач вводить кількість елементів. Створити масив, що складається з вказаної кількості елементів заповнених нулями.
+         </p>
+         <script>
+            //Написання функції створення масиву
+            function getArr(itemsAmount) {
+               const resultingArray = new Array(itemsAmount).fill(0)
+               return resultingArray
+            }
+         
+
+            //Введення вхідних аргументів
+            const userQuantityItems = parseInt(prompt('Введіть число, скільки потрібно створити елементів в масиві:'))
+
+            //Виклик функції створення масиву
+            const newArray = getArr(userQuantityItems)
+            
+            //Виводимо результат
+            document.write(`Створений масив: ${newArray}`)
+         </script>
+      </div>
+   </body>
+</html>
