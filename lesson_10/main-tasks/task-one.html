@@ -119,11 +119,8 @@
         )
 
         //6) Визначити, чи є ціна, що менше 1000.
-        const isPriceLessOneThousand = arrOfPricestoSecurities.some(
-          (element) => element < 1000
-        )
         let resultForSixTask = ""
-        if (isPriceLessOneThousand)
+        if (arrOfPricestoSecurities.some((element) => element < 1000))
           resultForSixTask = "у масиві є ціна, менше 1000"
         else resultForSixTask = "у масиві немає ціни, меншої за 1000"
         document.write(
@@ -131,11 +128,8 @@
         )
 
         //7) Визначати, чи усі ціни більше за 1000.
-        const isAllPricesGreaterOneThousand = arrOfPricestoSecurities.every(
-          (element) => element > 1000
-        )
         let resultForSevenTask = ""
-        if (isAllPricesGreaterOneThousand)
+        if (arrOfPricestoSecurities.every((element) => element > 1000))
           resultForSevenTask = "у масиві всі ціни більше 1000"
         else resultForSevenTask = "у масиві не всі ціни більше 1000"
         document.write(
