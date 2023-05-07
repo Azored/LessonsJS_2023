@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="zxx">
-   <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="../css/tasks.css" />
-      <title>Задача 8</title>
-   </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/tasks.css" />
+    <title>Задача 8</title>
+  </head>
 
-   <body>
-      <div class="task">
-         <h2 class="task__title">Задача 8</h2>
-         <p class="task__description">
-            Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А».
-         </p>
-         <script>          
-            //Введення вхідних аргументів
-            const carNumbers = [
-               "AA3453AT",
-               "AA6784AA",
-               "BC3242AB",
-               "KP3431MR",
-               "AA42A",
-               "BP42N",
-               "CY5376BC",
-            ]          
-            //Знаходимо результат
-            const newCarNumbersArray = carNumbers.filter(element => element[0] === 'A')
-            //Виводимо результат
-            document.write(`Базовий масив з номерами авто: ${carNumbers}<br>`)
-            document.write(`Сформований новий масив, у якому номера авто починаються на «А»: ${newCarNumbersArray}`)
-         </script>
-      </div>
-   </body>
+  <body>
+    <div class="task">
+      <h2 class="task__title">Задача 8</h2>
+      <p class="task__description">
+        Дано масив номерів авто. Сформувати новий масив тих, які починаються на
+        «А».
+      </p>
+      <script>
+        //Введення вхідних аргументів
+        const carNumbers = [
+          "AA3453AT",
+          "AA6784AA",
+          "BC3242AB",
+          "KP3431MR",
+          "AA42A",
+          "BP42N",
+          "CY5376BC",
+        ]
+        //Знаходимо результат
+        const newCarNumbersArray = carNumbers.filter(
+          (element) => element[0] === "A"
+        )
+        //Виводимо результат
+        document.write(`Базовий масив з номерами авто: ${carNumbers}<br>`)
+        document.write(
+          `Сформований новий масив, у якому номера авто починаються на «А»: ${newCarNumbersArray}`
+        )
+      </script>
+    </div>
+  </body>
 </html>

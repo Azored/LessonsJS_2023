@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html lang="zxx">
-   <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="../css/tasks.css" />
-      <title>Задача 6</title>
-   </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/tasks.css" />
+    <title>Задача 6</title>
+  </head>
 
-   <body>
-      <div class="task">
-         <h2 class="task__title">Задача 6</h2>
-         <p class="task__description">
-            Дано масив елементів. Усі елементи, які більші за перший елемент помножити на 2.
-         </p>
-         <script>
-            //Створення функцій
-            function getFilledArray(itemsNumber) {
-               let newFilledArray = new Array(itemsNumber)
-               for(let i = 0; i < newFilledArray.length; i++)
-               newFilledArray[i] = parseFloat(prompt(`Введіть значення ${i+1}-го елемента:`))
-               return newFilledArray
-            }
-            //Введення вхідних аргументів
-            const userQuantityItems = parseInt(prompt('Введіть число, скільки потрібно створити елементів в масиві:'))
-            //Виклик функції та знаходження результату
-            const filledArray = getFilledArray(userQuantityItems)
-            document.write(`Створений масив: ${filledArray}<br>`)
-            filledArray.forEach((element,index,baseArrRef) => {
-                  if(element > baseArrRef[0])
-                  baseArrRef[index] *= 2
-               })
-            //Виведення результату
-            document.write(`Візьмемо створений масив, та елменти, які більші за перший, помножимо на два. Тоді отримаємо наступний маисв: ${filledArray}`)
-         </script>
-      </div>
-   </body>
+  <body>
+    <div class="task">
+      <h2 class="task__title">Задача 6</h2>
+      <p class="task__description">
+        Дано масив елементів. Усі елементи, які більші за перший елемент
+        помножити на 2.
+      </p>
+      <script>
+        //Створення функцій
+        function getFilledArray(itemsNumber) {
+          let newFilledArray = new Array(itemsNumber)
+          for (let i = 0; i < newFilledArray.length; i++)
+            newFilledArray[i] = parseFloat(
+              prompt(`Введіть значення ${i + 1}-го елемента:`)
+            )
+          return newFilledArray
+        }
+        //Введення вхідних аргументів
+        const userQuantityItems = parseInt(
+          prompt("Введіть число, скільки потрібно створити елементів в масиві:")
+        )
+        //Виклик функції та знаходження результату
+        const filledArray = getFilledArray(userQuantityItems)
+        document.write(`Створений масив: ${filledArray}<br>`)
+        filledArray.forEach((element, index, baseArrRef) => {
+          if (element > baseArrRef[0]) baseArrRef[index] *= 2
+        })
+        //Виведення результату
+        document.write(
+          `Візьмемо створений масив, та елменти, які більші за перший, помножимо на два. Тоді отримаємо наступний маисв: ${filledArray}`
+        )
+      </script>
+    </div>
+  </body>
 </html>
