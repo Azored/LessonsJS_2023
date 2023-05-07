@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/tasks.css" />
+    <title>Задача 1</title>
+  </head>
+
+  <body>
+    <div class="task">
+      <h2 class="task__title">Задача 1</h2>
+      <p class="task__description">
+        Дано історію цін на цінні папери за деякий період (згенерувати від 1 до
+        10000).
+      </p>
+      <ol>
+        <li>
+          Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
+        </li>
+        <li>
+          Сформувати новий масив, у якому є номери тільки тих, що більші за 1000
+          грн.
+        </li>
+        <li>Сформувати список з тих цін, які більші за попереднє значення.</li>
+        <li>
+          Сформувати новий масив, що міститиме значення цін у відсотках стосовно
+          максимального.
+        </li>
+        <li>Підрахувати кількість змін цін.</li>
+        <li>Визначити, чи є ціна, що менше 1000.</li>
+        <li>Визначати, чи усі ціни більше за 1000.</li>
+        <li>Підрахувати кількість цін, що більше за 1000.</li>
+        <li>Підрахувати суму цін, що більше за 1000.</li>
+        <li>Знайти першу ціну, що більше за 1000.</li>
+        <li>Знайти індекс першої ціни, що більше за 1000.</li>
+        <li>Знайти останню ціну, що більше за 1000.</li>
+        <li>Знайти індекс останньої ціни, що більше за 1000.</li>
+      </ol>
+      <script>
+        //Написання функції створення масиву
+        //Функція генерації рандомного числа
+        function getRandomNumber(minValue, maxValue) {
+          return (
+            minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+          )
+        }
+        //Функція створення масиву
+        function getFilledArrayOfRandomNumbers(
+          itemsNumber,
+          minValue,
+          maxValue
+        ) {
+          const arrOfRandomNumbers = new Array(itemsNumber)
+            .fill(0)
+            .map((element) => (element = getRandomNumber(minValue, maxValue)))
+          return arrOfRandomNumbers
+        }
+        //Функція для знаходження максимального значення масива
+        function getMaxValue(arr) {
+          return Math.max(...arr)
+        }
+        //Введення вхідних аргументів
+        const itemsNumberOfArray = parseInt(
+          prompt("Введіть число, скільки потрібно створити елементів масиву:")
+        )
+        //Виклик функції створення масиву
+        const arrOfPricestoSecurities = getFilledArrayOfRandomNumbers(
+          itemsNumberOfArray,
+          1,
+          10000
+        )
+        document.write(
+          `Створений масив історії цін на цінні папери за деякий період: ${arrOfPricestoSecurities}<br><br>`
+        )
+
+        //1) Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
+        const arrOfPricesGreaterOneThousand = arrOfPricestoSecurities.filter(
+          (element) => element > 1000
+        )
+        document.write(
+          `1) Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн<br>Результат: ${arrOfPricesGreaterOneThousand}<br><br>`
+        )
+
+        //2) Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+        const IndexesArrOfPricesGreaterOneThousand = []
+        arrOfPricestoSecurities.filter((element, index, baseArrRef) => {
+          if (element > 1000) IndexesArrOfPricesGreaterOneThousand.push(index)
+        })
+        document.write(
+          `2) Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.<br>Результат: ${IndexesArrOfPricesGreaterOneThousand}<br><br>`
+        )
+
+        //3) Сформувати список з тих цін, які більші за попереднє значення.
+        const listOfPricesGreaterPreviousValue = arrOfPricestoSecurities.filter(
+          (element, index, baseArrRef) => element > baseArrRef[index - 1]
+        )
+        document.write(
+          `3) Сформувати список з тих цін, які більші за попереднє значення.<br>Результат: ${listOfPricesGreaterPreviousValue}<br><br>`
+        )
+
+        //4) Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального.
+        const maxPriceInArray = getMaxValue(arrOfPricestoSecurities)
+        const arrOfPricesInPercent = arrOfPricestoSecurities.map((element) =>
+          ((100 * element) / maxPriceInArray).toFixed(2)
+        )
+        document.write(
+          `4) Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального.<br>Результат: ${arrOfPricesInPercent}<br><br>`
+        )
+
+        //5) Підрахувати кількість змін цін.
+        const priceChangeNumber = arrOfPricestoSecurities.reduce(
+          (prevPrice) => prevPrice + 1,
+          0
+        )
+        document.write(
+          `5) Підрахувати кількість змін цін.<br>Результат: ${priceChangeNumber}<br><br>`
+        )
+
+        //6) Визначити, чи є ціна, що менше 1000.
+        const isPriceLessOneThousand = arrOfPricestoSecurities.some(
+          (element) => element < 1000
+        )
+        let resultForSixTask = ""
+        if (isPriceLessOneThousand)
+          resultForSixTask = "у масиві є ціна, менше 1000"
+        else resultForSixTask = "у масиві немає ціни, меншої за 1000"
+        document.write(
+          `6) Визначити, чи є ціна, що менше 1000.<br> Результат: ${resultForSixTask}<br><br>`
+        )
+
+        //7) Визначати, чи усі ціни більше за 1000.
+        const isAllPricesGreaterOneThousand = arrOfPricestoSecurities.every(
+          (element) => element > 1000
+        )
+        let resultForSevenTask = ""
+        if (isAllPricesGreaterOneThousand)
+          resultForSevenTask = "у масиві всі ціни більше 1000"
+        else resultForSevenTask = "у масиві не всі ціни більше 1000"
+        document.write(
+          `7) Визначати, чи усі ціни більше за 1000.<br>Результат: ${resultForSevenTask}<br><br>`
+        )
+
+        //8) Підрахувати кількість цін, що більше за 1000.
+        const quantityOfPricesGreaterOneThousand =
+          arrOfPricestoSecurities.reduce(
+            (prevPrice, element) =>
+              element > 1000 ? prevPrice + 1 : prevPrice,
+            0
+          )
+        document.write(
+          `8) Підрахувати кількість цін, що більше за 1000.<br>Результат: ${quantityOfPricesGreaterOneThousand}<br><br>`
+        )
+
+        //9) Підрахувати суму цін, що більше за 1000.
+        const SumOfPricesGreaterOneThousand = arrOfPricestoSecurities.reduce(
+          (prevPrice, element) =>
+            element > 1000 ? prevPrice + element : prevPrice,
+          0
+        )
+        document.write(
+          `9) Підрахувати суму цін, що більше за 1000.<br>Результат: ${SumOfPricesGreaterOneThousand}<br><br>`
+        )
+
+        //10 Знайти першу ціну, що більше за 1000.
+        const firstPriceGreaterOneThousand = arrOfPricestoSecurities.find(
+          (element) => element > 1000
+        )
+        document.write(
+          `10) Знайти першу ціну, що більше за 1000.<br>Результат: ${firstPriceGreaterOneThousand}<br><br>`
+        )
+
+        //11) Знайти індекс першої ціни, що більше за 1000.
+        const firstIndexofFirstPriceGreaterOneThousand =
+          arrOfPricestoSecurities.findIndex((element) => element > 1000)
+        document.write(
+          `11) Знайти індекс першої ціни, що більше за 1000.<br>Результат: ${firstIndexofFirstPriceGreaterOneThousand}<br><br>`
+        )
+
+        //12) Знайти останню ціну, що більше за 1000.
+        const lastPriceGreaterOneThousand = arrOfPricestoSecurities.findLast(
+          (element) => element > 1000
+        )
+        document.write(
+          `12) Знайти останню ціну, що більше за 1000.<br>Результат: ${lastPriceGreaterOneThousand}<br><br>`
+        )
+
+        //13) Знайти індекс останньої ціни, що більше за 1000.
+        const lastIndexOfLastPriceGreaterOneThousand =
+          arrOfPricestoSecurities.findLastIndex((element) => element > 1000)
+        document.write(
+          `13) Знайти індекс останньої ціни, що більше за 1000.<br>Результат: ${lastIndexOfLastPriceGreaterOneThousand}<br><br>`
+        )
+      </script>
+    </div>
+  </body>
+</html>
