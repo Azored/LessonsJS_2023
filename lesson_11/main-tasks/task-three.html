@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/tasks.css" />
+    <title>Задача 3</title>
+  </head>
+
+  <body>
+    <div class="task">
+      <h2 class="task__title">Задача 3</h2>
+      <p class="task__description">
+        Морський бій. Випадковим чином на двовимірному полі розміром 6*6
+        розташовується 5 кораблів. Користувач стріляє вказуючи координати. Гра
+        продовжується поки не потоплено усі кораблі або у користувача не
+        закінчаться снаряди.
+      </p>
+      <script>
+        //Написання функцій
+        function getRandomNumber(minValue, maxValue) {
+          return (
+            minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+          )
+        }
+        function getRowFilledZero(elementsNumber) {
+          const arrFilledZero = new Array(elementsNumber).fill(0)
+          return arrFilledZero
+        }
+        function getGameField(rowNumber, columnNumber) {
+          let gameFilled = []
+          for (let rowIndex = 0; rowIndex < rowNumber; rowIndex++) {
+            const filledRow = getRowFilledZero(columnNumber)
+            gameFilled.push(filledRow)
+          }
+          return gameFilled
+        }
+        function getShipsOnGameFilled(
+          rowNumber,
+          columnNumber,
+          shipsNumber,
+          minValue,
+          maxValue
+        ) {
+          const gameFilled = getGameField(rowNumber, columnNumber)
+          const shipItem = 1
+          for (let i = 0; i < shipsNumber; i++) {
+            const shipsRowIndex = getRandomNumber(minValue, maxValue)
+            const shipsColumnIndex = getRandomNumber(minValue, maxValue)
+            if (gameFilled[shipsRowIndex][shipsColumnIndex] === 0)
+              gameFilled[shipsRowIndex][shipsColumnIndex] = shipItem
+            else i--
+          }
+          return gameFilled
+        }
+
+        //Введення вхідних аргументів
+        const userAttemptsNumber = parseInt(
+          prompt("Введіть кількість снарядів користувача:")
+        )
+
+        //Змінні
+        let shipsNumber = 5
+
+        //Створення цгрового поля
+        const gameFieldWithShips = getShipsOnGameFilled(6, 6, shipsNumber, 0, 5)
+
+        //Гра
+        for (let i = 0; i < userAttemptsNumber && shipsNumber > 0; i++) {
+          const selectedRowByUser = parseInt(
+            prompt("Введіть номер ряду, куди будете стріляти:")
+          )
+          const selectedColumnByUser = parseInt(
+            prompt("Введіть номер колонки, куди будете стріляти:")
+          )
+          if (
+            gameFieldWithShips[selectedRowByUser - 1][
+              selectedColumnByUser - 1
+            ] === 1
+          ) {
+            shipsNumber--
+            alert(`Ви попали в корабель! Залишилось ${shipsNumber} кораблів`)
+          } else alert("Ви промахнулись!")
+        }
+        if (shipsNumber === 0)
+          document.write("Вітаємо, ви знищили всі кораблі<br>")
+        else document.write("На жаль ви не смогли знищити всі кораблі<br>")
+
+        document.write("<br>Ось, де були розташовані кораблі:<br>")
+        for (let i = 0; i < gameFieldWithShips.length; i++) {
+          for (let j = 0; j < gameFieldWithShips[i].length; j++)
+            document.write(` ${gameFieldWithShips[i][j]}`)
+          document.write("<br>")
+        }
+      </script>
+    </div>
+  </body>
+</html>

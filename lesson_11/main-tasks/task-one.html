@@ -1,0 +1,145 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/tasks.css" />
+    <title>Задача 1</title>
+  </head>
+
+  <body>
+    <div class="task">
+      <h2 class="task__title">Задача 1</h2>
+      <p class="task__description">Знайти суми елементів у вказаній області:</p>
+      <ol>
+        <li><img src="../img/01.jpg" alt="Task" /></li>
+        <li><img src="../img/02.jpg" alt="Task" /></li>
+        <li><img src="../img/03.jpg" alt="Task" /></li>
+        <li><img src="../img/04.jpg" alt="Task" /></li>
+        <li>Суму парних рядків</li>
+        <li>Суму непарних стовпців</li>
+        <li>У парних рядках – непарні стовпці, у непарних – парні.</li>
+      </ol>
+      <script>
+        //Написання функцій
+        function getRandomNumber(minNumber, maxNumber) {
+          const result =
+            minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+          return result
+        }
+
+        function getFilledArr(itemsNumber, minNumber, maxNumber) {
+          let filledArr = new Array(itemsNumber)
+            .fill(0)
+            .map((element) => (element = getRandomNumber(minNumber, maxNumber)))
+          return filledArr
+        }
+
+        function getFilledMatrix(
+          rowsNumber,
+          columnNumber,
+          minNumber,
+          maxNumber
+        ) {
+          let filledMatrix = []
+          for (let i = 0; i < rowsNumber; i++) {
+            const filledArr = getFilledArr(columnNumber, minNumber, maxNumber)
+            filledMatrix.push(filledArr)
+          }
+          return filledMatrix
+        }
+
+        function getElementSum(
+          matrix,
+          startOfRow,
+          endOfRow,
+          startOfColumn,
+          endOfColumn
+        ) {
+          let sum = 0
+          for (let i = startOfRow; i <= endOfRow; i++)
+            for (let j = startOfColumn; j <= endOfColumn; j++)
+              sum += matrix[i][j]
+          return sum
+        }
+
+        //Введення вхідних аргументів
+        const matrix = getFilledMatrix(4, 5, 1, 40)
+        document.write("Створено масив розмірністю [4][5]:<br>")
+        for (let i = 0; i < matrix.length; i++) {
+          document.write("<br>")
+          for (let j = 0; j < matrix[i].length; j++)
+            document.write(` ${matrix[i][j]}`)
+        }
+        document.write("<br>")
+
+        //1) Перше завдання
+        const sumOfFirstGroupOfElement = getElementSum(matrix, 0, 1, 0, 1)
+        document.write(
+          `1) Сума елементів згідо першого завдання: ${sumOfFirstGroupOfElement}<br>`
+        )
+
+        //2) Друге завдання
+        const sumOfSecondGroupOfElement = getElementSum(matrix, 0, 1, 2, 4)
+        document.write(
+          `2) Сума елементів згідо другого завдання: ${sumOfSecondGroupOfElement}<br>`
+        )
+
+        //3) Третє завдання
+        const sumOfThirdGroupOfElement = getElementSum(matrix, 2, 3, 0, 1)
+        document.write(
+          `3) Сума елементів згідо третього завдання: ${sumOfThirdGroupOfElement}<br>`
+        )
+
+        //4) Четверте завдання
+        const sumOfFourthGroupOfElement = getElementSum(matrix, 2, 3, 2, 4)
+        document.write(
+          `4) Сума елементів згідо четвертого завдання: ${sumOfFourthGroupOfElement}<br>`
+        )
+        //5) П'яте завдання
+        let sumOfEvenRows = 0
+        for (let rowIndex = 0; rowIndex < matrix.length; rowIndex++)
+          if (rowIndex % 2 === 0)
+            for (
+              let columnIndex = 0;
+              columnIndex < matrix[rowIndex].length;
+              columnIndex++
+            )
+              sumOfEvenRows += matrix[rowIndex][columnIndex]
+        document.write(`5) Сумa парних рядків: ${sumOfEvenRows}<br>`)
+
+        //6) Шосте завдання
+        let sumOfOddColumns = 0
+        for (let rowIndex = 0; rowIndex < matrix.length; rowIndex++)
+          for (
+            let columnIndex = 0;
+            columnIndex < matrix[rowIndex].length;
+            columnIndex++
+          )
+            if (columnIndex % 2 !== 0)
+              sumOfOddColumns += matrix[rowIndex][columnIndex]
+        document.write(`6) Сума непарних стовпців: ${sumOfOddColumns}<br>`)
+
+        //7) Сьоме завдання
+        let sumOfMatrixPart = 0
+        for (let rowIndex = 0; rowIndex < matrix.length; rowIndex++)
+          for (
+            let columnIndex = 0;
+            columnIndex < matrix[rowIndex].length;
+            columnIndex++
+          ) {
+            if (rowIndex % 2 === 0 && columnIndex % 2 !== 0)
+              sumOfMatrixPart += matrix[rowIndex][columnIndex]
+            else if (rowIndex % 2 !== 0 && columnIndex % 2 === 0)
+              sumOfMatrixPart += matrix[rowIndex][columnIndex]
+          }
+        document.write(
+          `7) Знайти суму наступних елементів таблиці: у парних рядках – непарні стовпці, у непарних – парні.<br>Результат: ${sumOfMatrixPart}`
+        )
+      </script>
+    </div>
+  </body>
+</html>
