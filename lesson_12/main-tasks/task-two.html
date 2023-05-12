@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/tasks.css" />
+    <title>Задача 2</title>
+  </head>
+
+  <body>
+    <div class="task">
+      <h2 class="task__title">Задача 2</h2>
+      <p class="task__description">
+        Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів
+        під час сортування змішуванням.
+      </p>
+      <script>
+        //Написання функцій
+        function getRandomNumber(minValue, maxValue) {
+          return (
+            minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+          )
+        }
+
+        function getFilledArray(itemsNumber, minValue, maxValue) {
+          const filledArray = []
+          for (let i = 0; i < itemsNumber; i++) {
+            const arrayItem = getRandomNumber(minValue, maxValue)
+            filledArray.push(arrayItem)
+          }
+          return filledArray
+        }
+
+        //Створення масиву
+        let arr = getFilledArray(30, 1, 60)
+
+        //Виведення масиву
+        document.write(`Створений масив: ${arr}<br><br>`)
+
+        //Сортування масиву
+        let counter = 0
+        let leftIndex = 0
+        let rightIndex = arr.length - 1
+
+        while (leftIndex < rightIndex) {
+          for (let i = leftIndex; i < rightIndex; i++)
+            if (arr[i] > arr[i + 1]) {
+              const temp = arr[i + 1]
+              arr[i + 1] = arr[i]
+              arr[i] = temp
+              counter++
+            }
+          rightIndex--
+
+          for (let i = rightIndex; i > leftIndex; i--)
+            if (arr[i] < arr[i - 1]) {
+              const temp = arr[i - 1]
+              arr[i - 1] = arr[i]
+              arr[i] = temp
+              counter++
+            }
+          leftIndex++
+        }
+
+        //Виведення результату
+        document.write(
+          `Відсортований масив: ${arr}<br>Кількість перестановок елементів масиву: ${counter}`
+        )
+      </script>
+    </div>
+  </body>
+</html>

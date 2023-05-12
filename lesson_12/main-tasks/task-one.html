@@ -1,0 +1,64 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/tasks.css" />
+    <title>Задача 1</title>
+  </head>
+
+  <body>
+    <div class="task">
+      <h2 class="task__title">Задача 1</h2>
+      <p class="task__description">
+        Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів
+        під час сортування бульбашкою
+      </p>
+      <script>
+        //Написання функцій
+        function getRandomNumber(minNumber, maxNumber) {
+          const result =
+            minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+          return result
+        }
+        function getFilledArray(itemsNumber, minNumber, maxNumber) {
+          let filledArray = []
+          for (let i = 0; i < itemsNumber; i++) {
+            const itemArray = getRandomNumber(minNumber, maxNumber)
+            filledArray.push(itemArray)
+          }
+          return filledArray
+        }
+
+        //Створення масиву
+        const arr = getFilledArray(30, 1, 60)
+
+        //Виведемо отриманий масив
+        document.write(`Дано масив: ${arr}<br><br>`)
+
+        //Сортування масиву
+        let changed
+        counter = 0
+        do {
+          changed = false
+          for (let i = 1; i <= arr.length; i++)
+            if (arr[i - 1] > arr[i]) {
+              const temp = arr[i - 1]
+              arr[i - 1] = arr[i]
+              arr[i] = temp
+              changed = true
+              counter++
+            }
+        } while (changed)
+
+        //Виведення результату
+        document.write(
+          `Відсортований масив: ${arr}<br>Кількість перестановок елементів масиву: ${counter}`
+        )
+      </script>
+    </div>
+  </body>
+</html>
