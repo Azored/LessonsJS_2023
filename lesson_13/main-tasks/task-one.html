@@ -1,0 +1,47 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/tasks.css" />
+    <title>Задача 1</title>
+  </head>
+
+  <body>
+    <div class="task">
+      <h2 class="task__title">Задача 1</h2>
+      <p class="task__description">
+        Нехай x<sub>0</sub> = 1, x<sub>i</sub> = x<sub>i-1</sub> + 2i, де i = 1,
+        2,... . Визначити x<sub>10</sub>. Розв’язати з використанням рекурсивних
+        і нерекурсивних алгоритмів.
+      </p>
+      <script>
+        //Розв'язання за допомогою рекурсивних алгоритмів
+        function getResultUsingRecursion(i) {
+          if (i === 0) return 1
+          else return getResultUsingRecursion(i - 1) + 2 * i
+        }
+
+        const resultUsingRecursion = getResultUsingRecursion(10)
+        document.write(
+          `Результат розрахунку, використовуючи рекурсивний алгоритм: ${resultUsingRecursion}<br>`
+        )
+
+        //Розв'язування за допомогою нерекурсивних алгоритмів
+        function getResultWithoutRecursion(n) {
+          let x = 1
+          for (let i = 1; i <= n; i++) x += 2 * i
+          return x
+        }
+
+        const resultWithoutRecursion = getResultWithoutRecursion(10)
+        document.write(
+          `Результат розрахунку без використання рекурсивних методів: ${resultWithoutRecursion}`
+        )
+      </script>
+    </div>
+  </body>
+</html>

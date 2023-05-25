@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/tasks.css" />
+    <title>Задача 4</title>
+  </head>
+
+  <body>
+    <div class="task">
+      <h2 class="task__title">Задача 4</h2>
+      <p class="task__description">
+        З використанням замикань розробити ітератор, тобто функцію, що буде
+        поступово за окремими викликами видавати по одну букву наперед заданого
+        слова. З використанням нього розробити гру «Прекладач». Виводимо для
+        користувача опис цього слова і по одну букву користувач вводить переклад
+        цього слова. Підрахувати кількість вгаданих букв.
+        <script>
+          //Створення функцій
+          function IteratorForWord(word) {
+            let result = ""
+            let index = 0
+            function getLetterOfWord() {
+              if (index < word.length) result = word[index]
+              index++
+              return result
+            }
+            return getLetterOfWord
+          }
+          alert(
+            "Опис слова, яке потрібно вгадати: людина, яка не має обманної, негативної, заздалегідь сформованої думки, упередження проти кого-, чого-небудь. Слово введіть на англійскій мові"
+          )
+          const word = "impartial"
+          const letterIterator = IteratorForWord(word)
+          let numberOfLettersGuesses = 0
+          for (let i = 0; i < word.length; i++) {
+            const letterOfWord = letterIterator()
+            const userLetter = prompt(`Введіть ${i + 1}-шу букву слова:`)
+            if (userLetter === letterOfWord) {
+              alert("Ви вгадали букву")
+              numberOfLettersGuesses++
+            } else alert("Ви не вгадали букву")
+          }
+          document.write(
+            `<br><br>Ви вгадали ${numberOfLettersGuesses} букв із заданого слова.<br>`
+          )
+          if (numberOfLettersGuesses === word.length)
+            document.write("Вітаємо, ви вгадали всі букви слова!")
+        </script>
+      </p>
+    </div>
+  </body>
+</html>

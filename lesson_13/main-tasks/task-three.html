@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/tasks.css" />
+    <title>Задача 3</title>
+  </head>
+
+  <body>
+    <div class="task">
+      <h2 class="task__title">Задача 3</h2>
+      <p class="task__description">
+        З використанням замикань розробити ітератор, тобто функцію, що буде
+        поступово за окремими викликами видавати по одне значення від заданого
+        мінімального до заданого максимального. Якщо значення досягне
+        максимального, то наступним буде мінімальне значення. З використанням
+        цієї функції реалізувати перебір номерів місяців.
+      </p>
+      <script>
+        //Написання функцій
+        function getIterator(minValue, maxValue) {
+          let result = minValue
+          function getValueOfIterator() {
+            if (result > maxValue) result = minValue
+            return result++
+          }
+          return getValueOfIterator
+        }
+
+        //Використаємо функцію
+        let iterator = getIterator(2, 5)
+
+        //Виведемо результат
+        document.write(`Результат роботи функції:<br>${iterator()}<br>`)
+        document.write(
+          `${iterator()}<br>${iterator()}<br>${iterator()}<br>${iterator()}<br>${iterator()}<br>${iterator()}<br>${iterator()}<br>${iterator()}<br>`
+        )
+      </script>
+    </div>
+  </body>
+</html>
